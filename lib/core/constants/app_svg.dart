@@ -13,6 +13,11 @@ abstract class AppSvg{
   static const filePlus = 'assets/svg/file-plus-02.svg';
   static const plusCircle= 'assets/svg/plus-circle.svg';
   static const plusPackage = 'assets/svg/package-plus.svg';
+  static const backIcon = 'assets/svg/leftContent.svg';
+  static const searchIcon = 'assets/svg/search-lg.svg';
+  static const scan = 'assets/svg/scan.svg';
+  static const settings = 'assets/svg/settings-04.svg';
+  static const cube= 'assets/svg/cube-01.svg';
   
 
 

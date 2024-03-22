@@ -7,7 +7,7 @@ import 'package:neobis_flutter_figma/features/shop_app/presentation/widgets/cust
 import 'package:neobis_flutter_figma/features/shop_app/presentation/widgets/my_grid_view.dart';
 
 import '../widgets/my_button.dart';
-import '../widgets/my_card.dart';
+import '../widgets/my_list_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -154,9 +154,9 @@ class _HomePageViewState extends State<HomePageView> {
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyCard(text: 'История продаж', svgIcon: AppSvg.calendar),
-                  MyCard(text: 'Список должников', svgIcon: AppSvg.users),
-                  MyCard(text: 'Мои расходы', svgIcon: AppSvg.filePlus),
+                  ListButton(text: 'История продаж', svgIcon: AppSvg.calendar),
+                  ListButton(text: 'Список должников', svgIcon: AppSvg.users),
+                  ListButton(text: 'Мои расходы', svgIcon: AppSvg.filePlus),
                 ],
               ),
             ),

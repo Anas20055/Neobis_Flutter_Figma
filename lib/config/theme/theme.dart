@@ -9,6 +9,12 @@ ThemeData _theme(){
 
 AppBarTheme _appBarThem(){
   return const AppBarTheme(
+    titleTextStyle: TextStyle(
+      fontFamily: 'Nunito Sans',
+      color: Colors.black,
+      fontSize: 18,
+      fontWeight: FontWeight.w700
+    ),
     centerTitle: true,
     elevation: 0,
   );
