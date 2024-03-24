@@ -18,7 +18,7 @@ abstract class AppSvg{
   static const scan = 'assets/svg/scan.svg';
   static const settings = 'assets/svg/settings-04.svg';
   static const cube= 'assets/svg/cube-01.svg';
-  
+  static const arrow= 'assets/svg/chevron-right.svg';
 
 
 }

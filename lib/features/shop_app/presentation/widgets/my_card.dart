@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:neobis_flutter_figma/core/constants/app_colors.dart';
+import 'package:neobis_flutter_figma/core/constants/app_images.dart';
 import 'package:neobis_flutter_figma/core/constants/app_svg.dart';
+import 'package:neobis_flutter_figma/features/shop_app/presentation/pages/count_items.dart';
 import 'package:neobis_flutter_figma/features/shop_app/presentation/widgets/my_card_info.dart';
-
-import '../../../../core/constants/app_images.dart';
-
 class MyCard extends StatefulWidget {
   final int index;
+  final String image;
   const MyCard({
     super.key,
-    required this.index,
+    required this.index, required this.image,
   });
 
   @override
@@ -24,10 +24,91 @@ class _MyCardState extends State<MyCard> {
       isSelected = newValue!;
     });
     showBottomSheet(context: context, builder: (BuildContext context){
-      return SizedBox(
-        height: 72,
-        width: MediaQuery.sizeOf(context).width,
-        child: Text('Anas'),
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(height: 1,color: Colors.grey.shade300,),
+          Container(
+              height: 72,
+              color: Colors.white,
+              width: MediaQuery.sizeOf(context).width,
+              padding:const  EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Stack(
+                    children: [
+                      CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Colors.white,
+                        child: CircleAvatar(
+                          radius: 18,
+                          backgroundImage: AssetImage(AppImages.image1,),
+                          
+                        ),
+                      ),
+                      Padding(
+                        padding:EdgeInsets.only(left: 32),
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            radius: 18,
+                            backgroundImage: AssetImage(AppImages.image2,),
+                            
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:  EdgeInsets.only(left: 64),
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            radius: 18,
+                            backgroundImage: AssetImage(AppImages.image3,),
+                            
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 95,bottom: 14),
+                        child: CircleAvatar(
+                          radius: 13,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            radius: 11,
+                            backgroundColor: AppColors.blue,
+                            child: Text('+2',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12,color:Colors.white),),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CountItemsScreen(),
+                      ),
+                    );
+                    },
+                    child:Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: AppColors.myYellowColor ,
+                    ),
+                    padding:const  EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                    child: Row(children: [
+                    const Text('Выбрать 5 ',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+                    SvgPicture.asset(AppSvg.arrow)
+                  ]),))
+                ],
+              ),
+          ),
+        ],
       );
     });
   }
@@ -76,7 +157,7 @@ class _MyCardState extends State<MyCard> {
             ),
             const SizedBox(height: 12),
             MyCardInfo(
-              image: AppImages.image + '${widget.index % 4 + 1}.png',
+              image: widget.image,
             ),
             const SizedBox(height: 4),
             Row(

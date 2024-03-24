@@ -40,7 +40,7 @@ class _SelectItemsScreenState extends State<SelectItemsScreen> {
             child: ListView.builder(
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return MyCard(index: index);
+                return MyCard(index: index,image: 'assets/images/Image${index%4+1}.png',);
               },
             ),
           ),
